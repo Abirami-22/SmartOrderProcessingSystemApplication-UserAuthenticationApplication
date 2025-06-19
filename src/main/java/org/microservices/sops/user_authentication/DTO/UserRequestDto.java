@@ -3,7 +3,6 @@ package org.microservices.sops.user_authentication.DTO;
 import jakarta.validation.constraints.*;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 @Data

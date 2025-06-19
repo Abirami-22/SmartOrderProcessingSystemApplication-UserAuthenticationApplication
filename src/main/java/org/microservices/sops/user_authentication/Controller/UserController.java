@@ -1,12 +1,11 @@
 package org.microservices.sops.user_authentication.Controller;
 
+import jakarta.validation.Valid;
 import lombok.Builder;
+import lombok.RequiredArgsConstructor;
 import org.microservices.sops.user_authentication.DTO.UserRequestDto;
 import org.microservices.sops.user_authentication.Model.User;
-import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 import org.microservices.sops.user_authentication.Service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +23,7 @@ public class UserController {
     @PostMapping("/register")
     public ResponseEntity<?> userRegistration(@Valid @RequestBody UserRequestDto userdto){
         User userResponse = userService.registerUser(userdto);
-        return ResponseEntity.ok(userdto.getFirstName() +" has been registered Successfully");
+        return ResponseEntity.ok(userResponse.getFirstName() +" has been registered Successfully");
     }
 
     @GetMapping("/userauth")
